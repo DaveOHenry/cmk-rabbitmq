@@ -12,8 +12,8 @@
 # Boston, MA 02110-1301 USA.
 #
 rabbit_queues_default_levels = {
-  "size" : (None, None),
-  "consumerCount": (None, None),
+  "size" : (-1, -1),
+  "consumerCount": (-1, -1),
 }
 
 def inventory_rabbitmq_queues(info):
