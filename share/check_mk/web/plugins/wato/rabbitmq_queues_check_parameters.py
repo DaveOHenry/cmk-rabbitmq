@@ -27,8 +27,8 @@ register_check_parameters(
                title = _("Levels for the queue length"),
                help = _("Set the maximum and minimum length for the queue size"),
 	       elements = [
-                   Integer(title="Warning at a size of", minvalue=0),
-                   Integer(title="Critical at a size of", minvalue=0),
+                   Integer(title="Warning at a size of", default_value=-1),
+                   Integer(title="Critical at a size of", default_value=-1),
                ]
             )),
             ("consumerCount",
@@ -36,8 +36,8 @@ register_check_parameters(
                title = _("Levels for the consumer count"),
                help = _("Consumer Count is the size of connected consumers to a queue"),
                elements = [
-                  Integer(title="Warning less then"),
-                  Integer(title="Critical less then"),
+                  Integer(title="Warning less then", default_value=-1),
+                  Integer(title="Critical less then", default_value=-1),
                ]
             )),
         ]
