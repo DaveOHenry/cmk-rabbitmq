@@ -110,7 +110,7 @@ for server in servers:
 
 	# Now that we have a pile of JSON, lets break it up
 	status=json.loads(query_rmq(url,user,password))
-	if status['cluster_name']:
+	if 'cluster_name' in status:
 		print "<<<rabbitmq_cluster>>>"
 		print status['cluster_name']
 	print "<<<rabbitmq_listeners>>>"
@@ -133,5 +133,7 @@ for server in servers:
 	print "<<<rabbitmq_queues>>>"
 	for i in range(len(queues)):
 		tqueue=queues[i]
-		print "%s\t%s\t%s\t%s\t%s" % (tqueue['name'],tqueue['state'],tqueue['consumers'],tqueue['messages'],tqueue['messages_ready'])
-
+		if 'state' in tqueue:
+			print "%s\t%s\t%s\t%s\t%s" % (tqueue['name'],tqueue['state'],tqueue['consumers'],tqueue['messages'],tqueue['messages_ready'])
+		else:
+			print "%s\t%s\t%s\t%s\t%s" % (tqueue['name'],tqueue['status'],tqueue['consumers'],tqueue['messages'],tqueue['messages_ready'])
